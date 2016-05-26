@@ -9,7 +9,7 @@ public class GeoDB {
 	private LookupService lookupService;
 	
 	private GeoDB(){
-		String fileName = getClass().getResource("/GeoIP.dat").toExternalForm().substring(6);
+		String fileName = getClass().getResource("GeoIP.dat").toExternalForm().substring(6);
 		try {
 			this.lookupService = new LookupService(fileName);
 		} catch (IOException e) {
