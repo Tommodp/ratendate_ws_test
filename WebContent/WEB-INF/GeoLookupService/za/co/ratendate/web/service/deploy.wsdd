@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?><!-- Use this file to deploy some handlers/chains and services      --><!-- Two ways to do this:                                           --><!--   java org.apache.axis.client.AdminClient deploy.wsdd          --><!--      after the axis server is running                          --><!-- or                                                             --><!--   java org.apache.axis.utils.Admin client|server deploy.wsdd   --><!--      from the same directory that the Axis engine runs         --><deployment xmlns="http://xml.apache.org/axis/wsdd/" xmlns:java="http://xml.apache.org/axis/wsdd/providers/java">
+
+  <!-- Services from GeoLookupService WSDL service -->
+
+  <service name="GeoLookup" provider="java:RPC" style="wrapped" use="literal">
+      <parameter name="wsdlTargetNamespace" value="http://service.web.ratendate.co.za"/>
+      <parameter name="wsdlServiceElement" value="GeoLookupService"/>
+      <parameter name="schemaQualified" value="http://service.web.ratendate.co.za"/>
+      <parameter name="wsdlServicePort" value="GeoLookup"/>
+      <parameter name="className" value="za.co.ratendate.web.service.GeoLookup"/>
+      <parameter name="wsdlPortType" value="GeoLookup"/>
+      <parameter name="typeMappingVersion" value="1.2"/>
+      <operation xmlns:operNS="http://service.web.ratendate.co.za" xmlns:retNS="http://service.web.ratendate.co.za" xmlns:rtns="http://www.w3.org/2001/XMLSchema" name="getCountry" qname="operNS:getCountry" returnQName="retNS:getCountryReturn" returnType="rtns:string" soapAction="">
+        <parameter xmlns:pns="http://service.web.ratendate.co.za" xmlns:tns="http://www.w3.org/2001/XMLSchema" qname="pns:ip" type="tns:string"/>
+      </operation>
+      <operation xmlns:operNS="http://service.web.ratendate.co.za" xmlns:retNS="http://service.web.ratendate.co.za" xmlns:rtns="http://www.w3.org/2001/XMLSchema" name="getCountryCode" qname="operNS:getCountryCode" returnQName="retNS:getCountryCodeReturn" returnType="rtns:string" soapAction="">
+        <parameter xmlns:pns="http://service.web.ratendate.co.za" xmlns:tns="http://www.w3.org/2001/XMLSchema" qname="pns:ip" type="tns:string"/>
+      </operation>
+      <parameter name="allowedMethods" value="getCountryCode getCountry"/>
+
+  </service>
+</deployment>

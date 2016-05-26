@@ -1,0 +1,150 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<wsdl:definitions targetNamespace="http://service.web.ratendate.co.za" xmlns:apachesoap="http://xml.apache.org/xml-soap" xmlns:impl="http://service.web.ratendate.co.za" xmlns:intf="http://service.web.ratendate.co.za" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:wsdlsoap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+<!--WSDL created by Apache Axis version: 1.4
+Built on Apr 22, 2006 (06:55:48 PDT)-->
+ <wsdl:types>
+  <schema elementFormDefault="qualified" targetNamespace="http://service.web.ratendate.co.za" xmlns="http://www.w3.org/2001/XMLSchema">
+   <element name="getCountry">
+    <complexType>
+     <sequence>
+      <element name="ip" type="xsd:string"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="getCountryResponse">
+    <complexType>
+     <sequence>
+      <element name="getCountryReturn" type="xsd:string"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="getCountryCode">
+    <complexType>
+     <sequence>
+      <element name="ip" type="xsd:string"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="getCountryCodeResponse">
+    <complexType>
+     <sequence>
+      <element name="getCountryCodeReturn" type="xsd:string"/>
+     </sequence>
+    </complexType>
+   </element>
+  </schema>
+ </wsdl:types>
+
+   <wsdl:message name="getCountryResponse">
+
+      <wsdl:part element="impl:getCountryResponse" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="getCountryCodeRequest">
+
+      <wsdl:part element="impl:getCountryCode" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="getCountryCodeResponse">
+
+      <wsdl:part element="impl:getCountryCodeResponse" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="getCountryRequest">
+
+      <wsdl:part element="impl:getCountry" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:portType name="GeoLookup">
+
+      <wsdl:operation name="getCountry">
+
+         <wsdl:input message="impl:getCountryRequest" name="getCountryRequest">
+
+       </wsdl:input>
+
+         <wsdl:output message="impl:getCountryResponse" name="getCountryResponse">
+
+       </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="getCountryCode">
+
+         <wsdl:input message="impl:getCountryCodeRequest" name="getCountryCodeRequest">
+
+       </wsdl:input>
+
+         <wsdl:output message="impl:getCountryCodeResponse" name="getCountryCodeResponse">
+
+       </wsdl:output>
+
+      </wsdl:operation>
+
+   </wsdl:portType>
+
+   <wsdl:binding name="GeoLookupSoapBinding" type="impl:GeoLookup">
+
+      <wsdlsoap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+
+      <wsdl:operation name="getCountry">
+
+         <wsdlsoap:operation soapAction=""/>
+
+         <wsdl:input name="getCountryRequest">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:input>
+
+         <wsdl:output name="getCountryResponse">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="getCountryCode">
+
+         <wsdlsoap:operation soapAction=""/>
+
+         <wsdl:input name="getCountryCodeRequest">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:input>
+
+         <wsdl:output name="getCountryCodeResponse">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:output>
+
+      </wsdl:operation>
+
+   </wsdl:binding>
+
+   <wsdl:service name="GeoLookupService">
+
+      <wsdl:port binding="impl:GeoLookupSoapBinding" name="GeoLookup">
+
+         <wsdlsoap:address location="http://localhost:8080/RatenDate/services/GeoLookup"/>
+
+      </wsdl:port>
+
+   </wsdl:service>
+
+</wsdl:definitions>
